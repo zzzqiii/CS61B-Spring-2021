@@ -23,5 +23,6 @@ public class StopwatchDemo {
         double timeInSeconds = sw.elapsedTime();
         System.out.println("The 50th fibonacci number is " + fib41);
         System.out.println("Time taken to compute 41st fibonacci number: " + timeInSeconds + " seconds.");
+        System.out.printf("%12s %12s %12s %12s\n", "N", "time (s)", "# ops", "microsec/op");
     }
 }

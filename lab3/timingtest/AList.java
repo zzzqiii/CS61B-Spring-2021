@@ -31,7 +31,7 @@ public class AList<Item> {
         items = a;
     }
 
-    /** Inserts X into the back of the list. */
+    /** Inserts X into the back of the list.
     public void addLast(Item x) {
         if (size == items.length) {
             resize(size + 1);
@@ -39,8 +39,14 @@ public class AList<Item> {
 
         items[size] = x;
         size = size + 1;
+    }*/
+    public void  addLast(Item x) {
+        if (size == items.length) {
+            resize((int) (size * 2));
+        }
+        items[size] = x;
+        size += 1;
     }
-
     /** Returns the item from the back of the list. */
     public Item getLast() {
         return items[size - 1];
