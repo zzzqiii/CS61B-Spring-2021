@@ -3,7 +3,7 @@ package deque;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-public class ArrayDeque<T> {
+public class ArrayDeque<T> implements Deque<T> {
     private int size;
     private int head;//首端的第一个有效元素
     private int tail;//尾插的下一个位置

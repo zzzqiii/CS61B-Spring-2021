@@ -3,7 +3,7 @@ package deque;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-public class LinkedListDeque<T> {
+public class LinkedListDeque<T> implements Deque<T> {
     private class StuffNode {
         public StuffNode prev;
         public T item;
@@ -105,6 +105,9 @@ public class LinkedListDeque<T> {
     public int size() {
         return size;
     }
+
+
+
     public boolean isEmpty() {
         return size == 0;
     }
