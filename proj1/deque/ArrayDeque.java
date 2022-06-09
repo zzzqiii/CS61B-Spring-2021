@@ -16,7 +16,7 @@ public class ArrayDeque<T> implements Deque<T>, Iterable<T> {
     private class ArrayDequeIterator implements Iterator<T> {
         private int wizPos;
 
-        public ArrayDequeIterator() {
+        ArrayDequeIterator() {
             wizPos = 0;
         }
 
@@ -63,9 +63,10 @@ public class ArrayDeque<T> implements Deque<T>, Iterable<T> {
         size += 1;
         head = (head - 1) & (items.length - 1);
         items[head] = t;
-        if (head == tail)
+        if (head == tail) {
             //doubleResize();
             resize(items.length * 2);
+        }
     }
 
     public void addLast(T t) {
@@ -150,7 +151,7 @@ public class ArrayDeque<T> implements Deque<T>, Iterable<T> {
         if (this.size() != o1.size()) {
             return false;
         }
-        for (int i = 0; i < this.size(); i++) {
+        for (int i = 0; i < this.size(); i ++) {
             if (!(this.get(i).equals(o1.get(i)))) {
                 return false;
             }
@@ -167,11 +168,11 @@ public class ArrayDeque<T> implements Deque<T>, Iterable<T> {
         ad.addFirst("1");
         ad.addLast("2");
         ad.removeFirst();
-        for (Integer i = 3; i <= 16; i++) {
+        for (Integer i = 3; i <= 16; i ++) {
             ad.addFirst(i.toString());
             ad.printDeque();
         }
-        for (int i = 0; i < 16; i++) {
+        for (int i = 0; i < 16; i ++) {
             System.out.println(ad.get(i));
         }
         Iterator<String> adi = ad.iterator();

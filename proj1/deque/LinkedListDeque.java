@@ -9,7 +9,7 @@ public class LinkedListDeque<T> implements Deque<T>, Iterable<T> {
         private T item;
         private StuffNode next;
 
-        public StuffNode(StuffNode p, T t, StuffNode n) {
+        StuffNode(StuffNode p, T t, StuffNode n) {
             prev = p;
             item = t;
             next = n;
@@ -34,13 +34,12 @@ public class LinkedListDeque<T> implements Deque<T>, Iterable<T> {
     private class LinkedListDequeIterator implements Iterator<T> {
         private int wizPos;
         private StuffNode p;
-        public LinkedListDequeIterator() {
-            wizPos = 0;
+        LinkedListDequeIterator() {
             p = sentinel;
         }
         @Override
         public boolean hasNext() {
-            return wizPos < size;
+            return p.next != null;
         }
 
         @Override
@@ -48,8 +47,8 @@ public class LinkedListDeque<T> implements Deque<T>, Iterable<T> {
             if (!hasNext()) {
                 throw new NoSuchElementException();
             }
-            T ret = sentinel.next.item;
-            wizPos += 1;
+            T ret = p.next.item;
+            p = p.next;
             return ret;
         }
     }
