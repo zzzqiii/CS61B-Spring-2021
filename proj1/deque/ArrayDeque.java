@@ -4,10 +4,10 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 public class ArrayDeque<T> implements Deque<T>, Iterable<T> {
-    public int size;
-    public int head; //首端的第一个有效元素
-    public int tail; //尾插的下一个位置
-    public T[] items;
+    private int size;
+    private int head; //首端的第一个有效元素
+    private int tail; //尾插的下一个位置
+    private T[] items;
 
     public ArrayDeque() {
         items = (T[]) new Object[8];

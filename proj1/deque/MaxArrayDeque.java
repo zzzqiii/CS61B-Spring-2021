@@ -3,10 +3,10 @@ package deque;
 import java.util.Comparator;
 
 public class MaxArrayDeque<T> extends ArrayDeque<T> {
-    public Comparator<T> comparator;
+    private Comparator<T> comparator;
+    private Object[] items;
     public MaxArrayDeque(Comparator<T> c) {
         comparator = c;
-        int size = 0;
         items = (T[]) new Object[8];
     }
     public T max() {
@@ -14,8 +14,9 @@ public class MaxArrayDeque<T> extends ArrayDeque<T> {
             return null;
         }
         T max = get(0);
-        for (int i = 1; i < size; i ++) {
-            if (comparator.compare(max, get(i)) == -1) {
+        int size = size();
+        for (int i = 1; i < size; i++) {
+            if (comparator.compare(max, get(i)) < 0) {
                 max = get(i);
             }
         }
@@ -27,8 +28,9 @@ public class MaxArrayDeque<T> extends ArrayDeque<T> {
             return null;
         }
         T max = get(0);
-        for (int i = 1; i < size; i ++) {
-            if (c.compare(max, get(i)) == -1) {
+        int size = size();
+        for (int i = 1; i < size; i++) {
+            if (c.compare(max, get(i)) < 0) {
                 max = get(i);
             }
         }
