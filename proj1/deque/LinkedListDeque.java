@@ -32,14 +32,15 @@ public class LinkedListDeque<T> implements Deque<T>, Iterable<T> {
     }
 
     private class LinkedListDequeIterator implements Iterator<T> {
-        private int wizPos;
         private StuffNode p;
+        private int wizPos;
         LinkedListDequeIterator() {
             p = sentinel;
+            wizPos = 0;
         }
         @Override
         public boolean hasNext() {
-            return p.next != null;
+            return wizPos < size;
         }
 
         @Override
@@ -49,6 +50,7 @@ public class LinkedListDeque<T> implements Deque<T>, Iterable<T> {
             }
             T ret = p.next.item;
             p = p.next;
+            wizPos += 1;
             return ret;
         }
     }
@@ -158,42 +160,5 @@ public class LinkedListDeque<T> implements Deque<T>, Iterable<T> {
 
     public Iterator<T> iterator() {
         return new LinkedListDequeIterator();
-    }
-
-
-
-    public static void main(String [] args) {
-        LinkedListDeque<String> lld1 = new LinkedListDeque<String>();
-
-        lld1.addLast("1");
-        lld1.printDeque();
-
-        lld1.addLast("2");
-        lld1.printDeque();
-
-        lld1.addLast("3");
-        lld1.printDeque();
-
-        lld1.addFirst("4");
-        lld1.printDeque();
-
-        System.out.println(lld1.get(3));
-        System.out.println(lld1.get(4));
-        System.out.println(lld1.get(2));
-
-        System.out.println(lld1.getRecursive(3));
-        System.out.println(lld1.getRecursive(4));
-        System.out.println(lld1.getRecursive(2));
-
-        lld1.removeFirst();
-        lld1.printDeque();
-
-        lld1.removeLast();
-        lld1.printDeque();
-
-        System.out.println(lld1.get(1));
-        Iterator<String> i = lld1.iterator();
-        System.out.println(i.hasNext());
-        System.out.println(i.next());
     }
 }

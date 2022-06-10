@@ -112,7 +112,7 @@ public class ArrayDeque<T> implements Deque<T>, Iterable<T> {
 
     private void resize(int capacity) {
         Object[] o = new Object[capacity];
-        for (int i = 0; i < size; i ++) {
+        for (int i = 0; i < size; i++) {
             o[i] = get(i);
         }
         items = (T[]) o;
@@ -123,7 +123,7 @@ public class ArrayDeque<T> implements Deque<T>, Iterable<T> {
     private void halfResize() {
         Object[] o = new Object[items.length / 2];
         int p = head;
-        for (int i = 0; i < size; i ++) {
+        for (int i = 0; i < size; i++) {
             o[i] = get(i);
         }
         items = (T[]) o;
@@ -151,7 +151,7 @@ public class ArrayDeque<T> implements Deque<T>, Iterable<T> {
         if (this.size() != o1.size()) {
             return false;
         }
-        for (int i = 0; i < this.size(); i ++) {
+        for (int i = 0; i < this.size(); i++) {
             if (!(this.get(i).equals(o1.get(i)))) {
                 return false;
             }
@@ -162,48 +162,4 @@ public class ArrayDeque<T> implements Deque<T>, Iterable<T> {
     public Iterator<T> iterator() {
         return new ArrayDequeIterator();
     }
-
-    public static void main(String[] args) {
-        ArrayDeque<String> ad = new ArrayDeque<>();
-        ad.addFirst("1");
-        ad.addLast("2");
-        ad.removeFirst();
-        for (Integer i = 3; i <= 16; i ++) {
-            ad.addFirst(i.toString());
-            ad.printDeque();
-        }
-        for (int i = 0; i < 16; i ++) {
-            System.out.println(ad.get(i));
-        }
-        Iterator<String> adi = ad.iterator();
-        System.out.println("Iterator: " + adi.next());
-        for (int i = 0; i < 16; i++) {
-            ad.removeFirst();
-            ad.printDeque();
-        }
-        ArrayDeque<Integer> ad1 = new ArrayDeque<>();
-        for (int i = 0; i <= 2; i++) {
-            ad1.addFirst(i);
-            ad1.printDeque();
-        }
-
-        for (int i = 0; i <= 3; i++) {
-            ad1.addLast(i);
-            ad1.printDeque();
-        }
-
-        for (int i = 1; i <= 4; i++) {
-            ad1.removeLast();
-            ad1.printDeque();
-        }
-
-        for (int i = 1; i <= 3; i++) {
-            ad1.removeFirst();
-            ad1.printDeque();
-        }
-
-
-
-    }
-
 }
