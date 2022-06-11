@@ -7,10 +7,10 @@ public class GuitarHero {
     //public static final double CONCERT_A = 440.;
     public static void main(String[] args) {
         //GuitarString stringA = new GuitarString(CONCERT_A);
-        GuitarString[] Concert = new GuitarString[37];
+        GuitarString[] concert = new GuitarString[37];
         /* create two guitar strings, for concert A and C */
         for (int i = 0; i < 37; i++) {
-            Concert[i] = new GuitarString(440 * Math.pow(2, (i - 24.0) / 12.0));
+            concert[i] = new GuitarString(440 * Math.pow(2, (i - 24.0) / 12.0));
         }
         int index = -2;
         while (true) {
@@ -20,13 +20,13 @@ public class GuitarHero {
                 char key = StdDraw.nextKeyTyped();
                 index = KEYBOARD.indexOf(key);
                 if (index != -1) {
-                    Concert[index].pluck();
+                    concert[index].pluck();
                 }
             }
             if (index >= 0) {
-                double sample = Concert[index].sample();
+                double sample = concert[index].sample();
                 StdAudio.play(sample);
-                Concert[index].tic();
+                concert[index].tic();
             }
         }
     }
