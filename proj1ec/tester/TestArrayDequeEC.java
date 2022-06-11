@@ -16,17 +16,17 @@ public class TestArrayDequeEC {
             if (numberBetweenZeroAndHundred < 50) {
                 sad1.addFirst(numberBetweenZeroAndHundred);
                 ads1.addFirst(numberBetweenZeroAndHundred);
-                assertEquals("addFirst(" + numberBetweenZeroAndHundred + ") then removeFirst() yields error", ads1.removeFirst(), sad1.removeFirst());
+                assertEquals("addFirst(" + numberBetweenZeroAndHundred + ")\nremoveFirst()", ads1.removeFirst(), sad1.removeFirst());
                 //ads1.printDeque();
             } else {
                 sad1.addLast(numberBetweenZeroAndHundred);
                 ads1.addLast(numberBetweenZeroAndHundred);
-                assertEquals("addLast(" + numberBetweenZeroAndHundred + ") then removeLast() yields error", ads1.removeLast(), sad1.removeLast());
+                assertEquals("addLast(" + numberBetweenZeroAndHundred + ")\nremoveLast()", ads1.removeLast(), sad1.removeLast());
             }
-            assertEquals(0, sad1.size());
+            assertEquals("size()", 0, sad1.size());
 
             for (int j = 0; j < sad1.size(); j++) {
-                assertEquals("get(" + j + ") yields error", sad1.get(j), ads1.get(j));
+                assertEquals("get(" + j + ")", sad1.get(j), ads1.get(j));
             }
         }
     }
@@ -50,10 +50,10 @@ public class TestArrayDequeEC {
         for (int i = 0; i < 1000; i ++) {
             Integer numberBetweenZeroAndHundred = (int) Math.round(StdRandom.uniform() * 100);
             if (numberBetweenZeroAndHundred < 50) {
-                assertEquals("removeFirst() method yields error", ads1.removeFirst(), sad1.removeFirst());
+                assertEquals("removeFirst()", ads1.removeFirst(), sad1.removeFirst());
                 //ads1.printDeque();
             } else {
-                assertEquals("removeLast() method yields error", ads1.removeLast(), sad1.removeLast());
+                assertEquals("removeLast()", ads1.removeLast(), sad1.removeLast());
             }
         }
     }
@@ -75,7 +75,7 @@ public class TestArrayDequeEC {
             }
         }
         for (int i = 0; i < 1000; i ++) {
-            assertEquals("removeFirst() method yields error", ads1.removeFirst(), sad1.removeFirst());
+            assertEquals("removeFirst()", ads1.removeFirst(), sad1.removeFirst());
         }
     }
 
@@ -96,7 +96,7 @@ public class TestArrayDequeEC {
             }
         }
         for (int i = 0; i < 1000; i ++) {
-            assertEquals("removeLast() method yields error", ads1.removeLast(), sad1.removeLast());
+            assertEquals("removeLast()", ads1.removeLast(), sad1.removeLast());
         }
     }
 }
