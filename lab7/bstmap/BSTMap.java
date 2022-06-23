@@ -7,7 +7,7 @@ import java.util.*;
 
 import static org.junit.Assert.assertTrue;
 
-public class BSTMap<K extends Comparable, V> implements Map61B<K, V> {
+public class BSTMap<K extends Comparable<K>, V> implements Map61B<K, V> {
 
     private class BSTNode {
         BSTNode left;
