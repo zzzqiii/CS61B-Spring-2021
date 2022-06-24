@@ -101,7 +101,7 @@ public class BSTMap<K extends Comparable<K>, V> implements Map61B<K, V> {
         printInOrder(root);
     }
 
-    public void printInOrder(BSTNode x) {
+    private void printInOrder(BSTNode x) {
         if (x == null) {
             return;
         } else {
@@ -202,10 +202,4 @@ public class BSTMap<K extends Comparable<K>, V> implements Map61B<K, V> {
         return new BSTMapIterator();
     }
 
-    public static void main(String[] args) {
-        BSTMap<String, Integer> b = new BSTMap<String, Integer>();
-        b.put("hi", null);
-        b.printInOrder();
-        System.out.println(b.containsKey("hi"));
-    }
 }
