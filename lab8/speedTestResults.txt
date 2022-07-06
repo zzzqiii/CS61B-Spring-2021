@@ -1,0 +1,30 @@
+#InsertRandomSpeedTest
+#length 5
+OperationNumbers    ULLMap  MyHashMap   HashMap
+              10    0.03    0.01        0.00
+             100    0.00    0.01        0.00
+            1000    0.00    0.00        0.00
+           10000    0.32    0.01        0.00
+          100000    NA      0.15        0.05
+          500000    NA      0.76        0.19
+         1000000    NA      1.46        0.89
+
+#InsertInOrderSpeedTest
+#length 5
+OperationNumbers    ULLMap  MyHashMap   HashMap
+              10    0.02    0.01        0.00
+             100    0.00    0.00        0.00
+            1000    0.01    0.00        0.00
+           10000    0.77    0.02        0.00
+          100000    NA      0.15        0.07
+          500000    NA      0.63        0.19
+         1000000    NA      3.56        0.65
+
+#BucketsSpeedTest
+#length 5
+OperationNumbers    MyHashMapALBuckets  MyHashMapLLBuckets   MyHashMapTSBuckets    MyHashMapHSBuckets     MyHashMapPQBuckets
+              10    0.02                0.00                 0.00                  0.00                   0.00
+             100    0.00                0.00                 0.00                  0.00                   0.00
+            1000    0.00                0.00                 0.00                  0.00                   0.00
+           10000    0.01                0.01                 0.02                  0.01                   0.01
+          100000    0.16                0.18                 0.15                  0.16                   0.13
